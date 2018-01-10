@@ -1,0 +1,29 @@
+﻿@model MamidiPatientProfile.Models.RegisteredUserViewModel
+@{
+    ViewBag.Title = "RegisteredUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Registered User Login Page</h1>
+
+@using (Html.BeginForm("RegisteredUser", "RegisteredUser", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                @Html.LabelFor(ru => ru.EmailAddress)
+                @Html.TextBoxFor(ru => ru.EmailAddress, new { placeHolder = "Email Address", @class = "form-control" })
+                @Html.ValidationMessageFor(ru => ru.EmailAddress, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(ru => ru.Password)
+                @Html.PasswordFor(ru => ru.Password, new { placeHolder = "Password", @class = "form-control" })
+                @Html.ValidationMessageFor(ru => ru.Password, "", new { @class = "text-danger" })
+            </div>
+            <input type="submit" class="btn btn-default" value="Log In" />
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+}
+

@@ -1,0 +1,44 @@
+﻿@model MamidiPatientProfile.Models.NewUserViewModel
+@{
+    ViewBag.Title = "NewUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>New User Registration Page</h1>
+
+@using (Html.BeginForm("NewUser", "NewUser", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                @Html.LabelFor(nu => nu.FirstName)
+                @Html.TextBoxFor(nu => nu.FirstName, new { placeHolder = "First Name", @class = "form-control" })
+                @Html.ValidationMessageFor(nu => nu.FirstName, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(nu => nu.LastName)
+                @Html.TextBoxFor(nu => nu.LastName, new { placeHolder = "Last Name", @class = "form-control" })
+                @Html.ValidationMessageFor(nu => nu.LastName, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(nu => nu.EmailAddress)
+                @Html.TextBoxFor(nu => nu.EmailAddress, new { placeHolder = "Email Address", @class = "form-control" })
+                @Html.ValidationMessageFor(nu => nu.EmailAddress, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(nu => nu.Password)
+                @Html.PasswordFor(nu => nu.Password, new { placeHolder = "Password", @class = "form-control" })
+                @Html.ValidationMessageFor(nu => nu.Password, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(nu => nu.ConfirmPassword)
+                @Html.PasswordFor(nu => nu.ConfirmPassword, new { placeHolder = "Confirm Password", @class = "form-control" })
+                @Html.ValidationMessageFor(nu => nu.ConfirmPassword, "", new { @class = "text-danger" })
+            </div>
+            <input type="submit" class="btn btn-default" value="Register" />
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+}
+
