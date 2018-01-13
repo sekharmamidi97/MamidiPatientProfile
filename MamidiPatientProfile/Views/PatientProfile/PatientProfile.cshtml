@@ -4,5 +4,85 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>PatientProfile</h2>
+<h1>Patient Profile</h1>
+@using (Html.BeginForm("PatientProfile", "PatientProfile", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-10">
+            <div class="form-group">
+                @Html.LabelFor(pp => pp.FirstName)
+                @Html.TextBoxFor(pp => pp.FirstName, new { placeHolder = "First Name", @class = "form-control" })
+                @Html.ValidationMessageFor(pp => pp.FirstName, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(pp => pp.MiddleName)
+                @Html.TextBoxFor(pp => pp.MiddleName, new { placeHolder = "Middle Name", @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(pp => pp.LastName)
+                @Html.TextBoxFor(pp => pp.LastName, new { placeHolder = "Last Name", @class = "form-control" })
+                @Html.ValidationMessageFor(pp => pp.LastName, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(pp => pp.Gender)<br />
+                @Html.RadioButtonFor(pp => pp.Gender, "Male") Male<br />
+                @Html.RadioButtonFor(pp => pp.Gender, "Female") Female<br />
+                @Html.RadioButtonFor(pp => pp.Gender, "Transgender Male") Transgender Male<br />
+                @Html.RadioButtonFor(pp => pp.Gender, "Transgender Female") Transgender Female
+                @Html.ValidationMessageFor(pp => pp.Gender, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(pp => pp.Address)
+                @Html.TextAreaFor(pp => pp.Address, new { placeHolder = "Address", @class = "form-control" })
+                @Html.ValidationMessageFor(pp => pp.Address, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(pp => pp.PhoneNumber)
+                @Html.TextBoxFor(pp => pp.PhoneNumber, new { placeHolder = "Phone Number", @class = "form-control" })
+                @Html.ValidationMessageFor(pp => pp.PhoneNumber, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(pp => pp.EmailAddress)
+                @Html.TextBoxFor(pp => pp.EmailAddress, new { placeHolder = "Email Address", @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(pp => pp.Birthdate)
+                
+                @Html.ValidationMessageFor(pp => pp.Birthdate, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(pp => pp.Allergies)
+                @Html.TextAreaFor(pp => pp.Allergies, new { placeHolder = "Allergies", @class = "form-control" })
+                @Html.ValidationMessageFor(pp => pp.Allergies, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(pp => pp.PastMedicalHistory)
+                @Html.TextAreaFor(pp => pp.PastMedicalHistory, new { placeHolder = "Past Medical History", @class = "form-control" })
+                @Html.ValidationMessageFor(pp => pp.PastMedicalHistory, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(pp => pp.FamilyHistory)
+                @Html.TextAreaFor(pp => pp.FamilyHistory, new { placeHolder = "Family History", @class = "form-control" })
+                @Html.ValidationMessageFor(pp => pp.FamilyHistory, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(pp => pp.SocialHistory)
+                @Html.TextAreaFor(pp => pp.SocialHistory, new { placeHolder = "SocialHistory", @class = "form-control" })
+                @Html.ValidationMessageFor(pp => pp.SocialHistory, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(pp => pp.HistoryPresentIllness)
+                @Html.TextAreaFor(pp => pp.HistoryPresentIllness, new { placeHolder = "History of Present Illness", @class = "form-control" })
+                @Html.ValidationMessageFor(pp => pp.HistoryPresentIllness, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(pp => pp.MedicationHistory)
+                
+                @Html.ValidationMessageFor(pp => pp.MedicationHistory, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+}
 
